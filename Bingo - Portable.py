@@ -4,18 +4,19 @@ import time
 import webbrowser
 import ctypes
 
-version = '1.1.0'
+version = '2.0.0'
 
-ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller Portable")
+ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller Portable Version " + version)
 #Welcome Message
 print('Welcome to Bingo Caller Portable Version ' + version)
 
 print('Would you like to send the developers an email about this program?')
-questionEmail = input('Enter \'Y\' for yes and \'N\' for no: ')
-if questionEmail == 'y':
-       webbrowser.open('mailto:software.bingocallerapp@outlook.com', new=2)
-
-else:
+questionEmail = input('Enter \'T\' for ticket creation, \'E\' for email or \'N\' for nothing: ')
+if questionEmail == 't':
+       webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
+elif questionEmail == 'e':
+       webbrowser.open('mailto:requests@bingocaller.atlassian.net', new=2)
+elif questionEmail == 'n':
        print('After you type a value, press Enter to submit it.')
        #Pause
        time.sleep(0.4)
@@ -63,7 +64,7 @@ else:
                             alreadyCalled.append(nextNumber)
                             print (nextNumber)
                             nextNumber = random.randint(1,90)
-                            input("Press Enter to view next drawn number")
+                            input("\n")
                             x +=1
               #Ends the loop when conditions met
                      else:
